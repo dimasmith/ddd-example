@@ -9,10 +9,11 @@ buildscript {
 }
 
 group 'com.backbase'
-version '1.0-SNAPSHOT'
+version '1.0.0-SNAPSHOT'
 
 apply plugin: 'java'
 apply plugin: 'spring-boot'
+apply plugin: 'maven'
 
 sourceCompatibility = 1.8
 
@@ -42,4 +43,14 @@ dependencies {
 
 task wrapper(type: Wrapper) {
   gradleVersion = '2.14'
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: "http://nexus:8081/repository/maven-snapshots/") {
+              authentication(userName: "admin", password: "admin123")
+            }
+        }
+    }
 }

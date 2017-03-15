@@ -11,3 +11,8 @@ stage('Verify') {
     }
 }
 
+stage('Deploy') {
+    node {
+        sh './gradlew uploadArchives'
+    }
+}
