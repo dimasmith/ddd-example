@@ -4,16 +4,15 @@ buildscript {
     }
 
     dependencies {
-        classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.3.5.RELEASE'
+        classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.4.2.RELEASE'
     }
 }
 
-group 'com.backbase'
+group 'net.anatolich'
 version '1.0.0-SNAPSHOT'
 
 apply plugin: 'java'
 apply plugin: 'spring-boot'
-apply plugin: 'maven'
 
 sourceCompatibility = 1.8
 
@@ -42,15 +41,6 @@ dependencies {
 }
 
 task wrapper(type: Wrapper) {
-  gradleVersion = '2.14'
+  gradleVersion = '3.5'
 }
 
-uploadArchives {
-    repositories {
-        mavenDeployer {
-            repository(url: "http://nexus:8081/repository/maven-snapshots/") {
-              authentication(userName: "admin", password: "admin123")
-            }
-        }
-    }
-}
