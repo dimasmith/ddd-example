@@ -1,6 +1,6 @@
 stage 'Build'
 node {
-    git url: 'https://github.com/dimasmith/ddd-example.git', branch: 'dev'
+    checkout scm
     sh './gradlew clean classes'
 }
 
