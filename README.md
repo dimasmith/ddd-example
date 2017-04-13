@@ -147,6 +147,3 @@ Minimal time between tournaments is 5 days.
 Tournament can be cancelled at any time before it ends.
 Tournament becomes deleted from system and any results are discarded.
 
-
-# Build using Jenkins
-I add this comment purely to test hook.
