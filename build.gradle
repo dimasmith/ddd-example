@@ -8,7 +8,7 @@ buildscript {
     }
 }
 
-group 'com.backbase'
+group 'net.anatolich'
 version '1.0.0-SNAPSHOT'
 
 apply plugin: 'java'
