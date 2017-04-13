@@ -45,12 +45,3 @@ task wrapper(type: Wrapper) {
   gradleVersion = '2.14'
 }
 
-uploadArchives {
-    repositories {
-        mavenDeployer {
-            repository(url: "http://nexus:8081/repository/maven-snapshots/") {
-              authentication(userName: "admin", password: "admin123")
-            }
-        }
-    }
-}
