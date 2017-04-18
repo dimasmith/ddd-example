@@ -5,7 +5,7 @@ node {
 
     stage('Build') {
         docker.image('openjdk:8').inside {
-            sh './gradlew clean compile'
+            sh './gradlew clean compileJava'
         }
     }
 
