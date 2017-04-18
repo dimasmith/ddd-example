@@ -9,7 +9,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                withDockerContainer('java:8') {
+                withDockerContainer('openjdk:8') {
                     sh './gradlew clean compile'
                 }
             }
@@ -17,7 +17,7 @@ pipeline {
 
         stage('Verify') {
             steps {
-                withDockerContainer('java:8') {
+                withDockerContainer('openjdk:8') {
                     sh './gradlew check'
                 }        
             }            
