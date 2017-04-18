@@ -1,11 +1,17 @@
-stage 'Build'
 node {
-    checkout scm
-    sh './gradlew clean classes'
-}
+    stage('Checkout') {
+        checkout scm
+    }    
 
-stage 'Verify'
-node {
-    sh './gradlew check'
-}
+    stage('Build') {
+        withDockerContainer('java:8') {
+            sh './gradlew clean compile'
+        }
+    }
 
+    stage('Verify') {
+        withDockerContainer('java:8') {
+            sh './gradlew check'
+        }        
+    }
+}
