@@ -1,17 +1,23 @@
-node {
-    stage('Checkout') {
-        checkout scm
-    }    
+pipeline {
+    agent any
+    stages {
+        stage('Checkout') {
+            checkout scm
+        }    
 
-    stage('Build') {
-        withDockerContainer('java:8') {
-            sh './gradlew clean compile'
+        stage('Build') {
+            withDockerContainer('java:8') {
+                sh './gradlew clean compile'
+            }
+        }
+
+        stage('Verify') {
+            withDockerContainer('java:8') {
+                sh './gradlew check'
+            }        
         }
     }
-
-    stage('Verify') {
-        withDockerContainer('java:8') {
-            sh './gradlew check'
-        }        
-    }
 }
+
+
+
