@@ -6,19 +6,15 @@ node {
     }    
 
     stage('Build') {
-        steps {
-            docker.image('openjdk:8').inside {
-                sh './gradlew clean compile'
-            }
+        docker.image('openjdk:8').inside {
+            sh './gradlew clean compile'
         }
     }
 
     stage('Verify') {
-        steps {
-            docker.image('openjdk:8').inside {
-                sh './gradlew check'
-            }        
-        }            
+        docker.image('openjdk:8').inside {
+            sh './gradlew check'
+        }        
     }
 }
 
